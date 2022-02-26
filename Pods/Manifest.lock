@@ -1,0 +1,42 @@
+PODS:
+  - Alamofire (4.9.1)
+  - ANLoader (1.1.2)
+  - Masonry (1.1.0)
+  - ReachabilitySwift (3)
+  - SwiftLint (0.46.3)
+  - SwiftMessages (9.0.6):
+    - SwiftMessages/App (= 9.0.6)
+  - SwiftMessages/App (9.0.6)
+  - SwiftyMasonry (0.1.5):
+    - Masonry
+
+DEPENDENCIES:
+  - Alamofire
+  - ANLoader
+  - ReachabilitySwift (~> 3)
+  - SwiftLint
+  - SwiftMessages
+  - SwiftyMasonry
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - ANLoader
+    - Masonry
+    - ReachabilitySwift
+    - SwiftLint
+    - SwiftMessages
+    - SwiftyMasonry
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  ANLoader: fe33ee0568e30894f7d33e7d3aafe8de4b980153
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  SwiftLint: ae76d82f056734f853c8cd0371503252c606c482
+  SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
+  SwiftyMasonry: 00e92c5c2b4537281b6f90ba717ac1c07d2dd75a
+
+PODFILE CHECKSUM: 39a11388f36eb9d2e95c7e17eb195be8ba7b68c4
+
+COCOAPODS: 1.11.2

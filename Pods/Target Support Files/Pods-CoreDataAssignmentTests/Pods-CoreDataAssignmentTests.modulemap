@@ -1,0 +1,6 @@
+framework module Pods_CoreDataAssignmentTests {
+  umbrella header "Pods-CoreDataAssignmentTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
