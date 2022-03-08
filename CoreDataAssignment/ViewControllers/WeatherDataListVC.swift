@@ -24,7 +24,7 @@ override func viewDidLoad() {
 private extension WeatherDataListVC {
 // MARK: - Setting Navigation Bar
 func setNavBar() {
-    navigationController?.navigationBar.barTintColor = StringLiterals.Colors.ColorNavBar
+    navigationController?.navigationBar.barTintColor = StringLiterals.Colors.colorNavBar
     navigationController?.navigationBar.isTranslucent = false
     self.title = "Current Weather Data"
     // Updating UI
@@ -32,7 +32,7 @@ func setNavBar() {
 }
 // MARK: - Showing UI
 func showUI() {
-    self.view.backgroundColor = StringLiterals.Colors.ColorBg
+    self.view.backgroundColor = StringLiterals.Colors.colorBg
     tableView.backgroundColor = .clear
     tableView.bounces = false
     tableView.separatorStyle = .singleLine
@@ -52,22 +52,22 @@ func showUI() {
 // MARK: - Updating UI
 
 func callToViewModelForUIUpdate() {
-           // Binding of view with model
-           self.dataViewModelObject.bindViewModelToController = {
-           self.updateDataSource()
-           }
+     // Binding of view with model
+     self.dataViewModelObject.bindViewModelToController = {
+       self.updateDataSource()
+  }
 }
 // MARK: - Updating Data Table From Url
 
 func updateDataSource() {
-    getCurrentData = self.coreManager.getCurrentData()
-    let minDataArr = self.getCurrentData["minutely"] as? NSArray
-    do {
+     getCurrentData = self.coreManager.getCurrentData()
+     let minDataArr = self.getCurrentData["minutely"] as? NSArray
+     do {
         self.minutelyDataArr = try DictionaryDecoder().decode([MinutelyData].self, from: minDataArr as Any )
-    } catch {
-    debugPrint(error)
+     } catch {
+     debugPrint(error)
     }
-   reloadTable()
+     reloadTable()
 }
 // MARK: - Reloading Table
 func reloadTable() {
@@ -75,19 +75,16 @@ func reloadTable() {
     let currentDataArr = self.getCurrentData["current"] as? NSDictionary
        do {
         let topItems = try DictionaryDecoder().decode(JsonListData.self, from: currentDataArr as Any)
-      self.dataSource = TableViewDataSource(cellIdentifier: cellReuseIdentifier,
+        self.dataSource = TableViewDataSource(cellIdentifier: cellReuseIdentifier,
                                             items: self.minutelyDataArr, topItems: topItems,
                                             configureCell: { (cell, row)  in
-      cell.labTitle.text = "precipitation: \(row.precipitation ?? 0)"
+       cell.labTitle.text = "precipitation: \(row.precipitation ?? 0)"
       })
       DispatchQueue.main.async {
-          self.tableView.dataSource = self.dataSource
-          self.tableView.delegate = self.dataSource
-          self.tableView.reloadData()
-          self.tableView.isHidden = false
+        self.updateTableview()
        }
       } catch {
-       debugPrint(error)
+        debugPrint(error)
       }
 
     guard self.minutelyDataArr.count != 0
@@ -97,5 +94,11 @@ func reloadTable() {
            return
        }
 
+    }
+func updateTableview() {
+        self.tableView.dataSource = self.dataSource
+        self.tableView.delegate = self.dataSource
+        self.tableView.reloadData()
+        self.tableView.isHidden = false
     }
 }

@@ -27,19 +27,14 @@ override init() {
 private func callFuncToGetData() {
     ANLoader.showLoading()
     NetworkOperation().postRequest(methodName: StringLiterals.jsonUrl) { [weak self] (response) in
-              // print("response",response)
                ANLoader.hide()
-               if let newResponse = response as? String {
-               let jsonData = Data((newResponse).utf8)
+               if let newResponse = response as? Data {
                let jsonDecoder = JSONDecoder()
                 do {
-                  let data = try jsonDecoder.decode(DataList.self, from: jsonData)
-                   // print("dataShow",data)
+                  let data = try jsonDecoder.decode(DataList.self, from: newResponse)
                   self?.jsonListData = data
-                  let current = self?.jsonListData.current
-                  let minutely = self?.jsonListData.minutely
-                  let currDictionary = try? DictionaryEncoder().encode(current)
-                  let minuteArray = try? DictionaryEncoder().encode(minutely)
+                  let currDictionary = try? DictionaryEncoder().encode(self?.jsonListData.current)
+                  let minuteArray = try? DictionaryEncoder().encode(self?.jsonListData.minutely)
                   self?.coreManager.setCurrentData(
                     current: (currDictionary as? NSDictionary)!,
                     minutely: (minuteArray as? NSArray)!)

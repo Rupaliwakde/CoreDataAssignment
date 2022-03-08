@@ -19,7 +19,7 @@ class TableViewDataSource<CELL: UITableViewCell, T>: NSObject, UITableViewDataSo
             y: StringLiterals.Insects.leftInset,
             width: tableView.frame.width,
             height: StringLiterals.Insects.heightInset))
-        headerView.backgroundColor = StringLiterals.Colors.ColorNavBar
+        headerView.backgroundColor = StringLiterals.Colors.colorNavBar
         let labTitle = UILabel()
         labTitle.textColor = .black
         labTitle.numberOfLines = 0

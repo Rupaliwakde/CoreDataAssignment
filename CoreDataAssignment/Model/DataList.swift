@@ -13,19 +13,6 @@ var uvi: Float?
 var clouds: Float?
 var visibility: Float?
     
-// MARK: - coding keys enumeration
-
-enum CodingKeys: String, CodingKey {
-    case sunrise
-    case sunset
-    case temp
-    case pressure
-    case humidity
-    case uvi
-    case clouds
-    case visibility
-}
-
 // MARK: - decoding values
 
 init(from decoder: Decoder) throws {
@@ -47,12 +34,6 @@ struct MinutelyData: Codable {
 
 var precipitation: Float?
     
-// MARK: - coding keys enumeration
-
-enum CodingKeys: String, CodingKey {
-    case precipitation
-}
-
 // MARK: - decoding values
 
 init(from decoder: Decoder) throws {

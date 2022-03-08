@@ -25,8 +25,7 @@ func postRequest(methodName: String, completion: @escaping (Any) -> Void) {
         if let data = data {
                 do {
                     _ = try JSONSerialization.jsonObject(with: data, options: [])
-                    let responseString = String.init(data: data, encoding: String.Encoding.utf8)
-                    completion(responseString as Any)
+                    completion(data as Any)
                 } catch {
                     print("ERROR", error)
                 }
@@ -39,16 +38,16 @@ func postRequest(methodName: String, completion: @escaping (Any) -> Void) {
 
 private func showAlert() {
     let alert = Alert()
-    alert.msg(message: StringLiterals.ConnectionMessages.AlertTitle)
+    alert.msg(message: StringLiterals.ConnectionMessages.alertTitle)
     alert.msg(
-              message: StringLiterals.ConnectionMessages.AlertMsg,
+              message: StringLiterals.ConnectionMessages.alertMsg,
               title: StringLiterals.ConnectionMessages.okStr)
 }
 
 // MARK: - Checking Internet
 
 private func checkInternet() -> Bool {
-    if reachability?.currentReachabilityStatus.description == StringLiterals.ConnectionMessages.AlertTitle {
+    if reachability?.currentReachabilityStatus.description == StringLiterals.ConnectionMessages.alertTitle {
             showAlert()
     } else {
         return true
@@ -59,7 +58,7 @@ private func checkInternet() -> Bool {
 // MARK: Class Alert
 
 private class Alert {
-    func msg(message: String, title: String = StringLiterals.ConnectionMessages.AlertTitle) {
+    func msg(message: String, title: String = StringLiterals.ConnectionMessages.alertTitle) {
             let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertView.addAction(UIAlertAction(title: StringLiterals.ConnectionMessages.okStr,
             style: .default, handler: nil))

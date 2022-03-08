@@ -4,25 +4,7 @@
         <attribute name="current" optional="YES" attributeType="Binary"/>
         <attribute name="minutely" optional="YES" attributeType="Binary"/>
     </entity>
-    <entity name="MinutelyEntity" representedClassName="MinutelyEntity" syncable="YES" codeGenerationType="class"/>
-    <entity name="WeatherEntity" representedClassName="WeatherEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="clouds" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="dew_point" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="dt" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="feels_like" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="pressure" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="sunrise" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="sunset" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="temp" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="uvi" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="visibility" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="wind_deg" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="wind_speed" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-    </entity>
     <elements>
-        <element name="MinutelyEntity" positionX="-36" positionY="99" width="128" height="29"/>
         <element name="CurrentEntity" positionX="-54" positionY="90" width="128" height="59"/>
-        <element name="WeatherEntity" positionX="-63" positionY="-18" width="128" height="224"/>
     </elements>
 </model>
