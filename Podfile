@@ -9,7 +9,6 @@ inhibit_all_warnings!
 target 'CoreDataAssignment' do
   # Comment the next line if you don't want to use dynamic frameworks
    pod 'SwiftyMasonry'
-   pod 'Alamofire'
    pod 'ReachabilitySwift’, ‘~> 3'
    pod 'SwiftMessages'
    pod 'ANLoader'

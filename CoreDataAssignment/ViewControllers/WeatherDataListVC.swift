@@ -9,7 +9,7 @@ private var dataViewModelObject = DataViewModel()
 private var getCurrentData = NSDictionary()
 private var minutelyDataArr = [MinutelyData]()
 private let coreManager = CoreDataManager()
-private let tableView = UITableView()
+let tableView = UITableView()
 private let cellReuseIdentifier = "cell"
 private var dataSource: TableViewDataSource<CustomTableViewCell, MinutelyData>!
 
@@ -37,6 +37,7 @@ func showUI() {
     tableView.bounces = false
     tableView.separatorStyle = .singleLine
     tableView.separatorColor = .white
+    tableView.isHidden = true
     tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     self.view.addSubview(tableView)
     // Setting Constraints for TableView
@@ -56,7 +57,6 @@ func callToViewModelForUIUpdate() {
            self.updateDataSource()
            }
 }
-    
 // MARK: - Updating Data Table From Url
 
 func updateDataSource() {
@@ -64,13 +64,11 @@ func updateDataSource() {
     let minDataArr = self.getCurrentData["minutely"] as? NSArray
     do {
         self.minutelyDataArr = try DictionaryDecoder().decode([MinutelyData].self, from: minDataArr as Any )
-    } catch
-    {
+    } catch {
     debugPrint(error)
     }
    reloadTable()
 }
-    
 // MARK: - Reloading Table
 func reloadTable() {
     // Initialising TableViewViewDataSource with its arguments having appropriate value and assigning to the dataSource.
@@ -86,6 +84,7 @@ func reloadTable() {
           self.tableView.dataSource = self.dataSource
           self.tableView.delegate = self.dataSource
           self.tableView.reloadData()
+          self.tableView.isHidden = false
        }
       } catch {
        debugPrint(error)

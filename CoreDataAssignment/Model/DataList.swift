@@ -66,4 +66,5 @@ init(from decoder: Decoder) throws {
 struct DataList: Codable {
     var current: JsonListData
     var minutely: [MinutelyData]
+    var timezone: String = ""
 }

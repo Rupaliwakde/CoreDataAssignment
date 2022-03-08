@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (4.9.1)
   - ANLoader (1.1.2)
   - Masonry (1.1.0)
   - ReachabilitySwift (3)
@@ -11,7 +10,6 @@ PODS:
     - Masonry
 
 DEPENDENCIES:
-  - Alamofire
   - ANLoader
   - ReachabilitySwift (~> 3)
   - SwiftLint
@@ -20,7 +18,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - ANLoader
     - Masonry
     - ReachabilitySwift
@@ -29,7 +26,6 @@ SPEC REPOS:
     - SwiftyMasonry
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   ANLoader: fe33ee0568e30894f7d33e7d3aafe8de4b980153
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
@@ -37,6 +33,6 @@ SPEC CHECKSUMS:
   SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
   SwiftyMasonry: 00e92c5c2b4537281b6f90ba717ac1c07d2dd75a
 
-PODFILE CHECKSUM: 39a11388f36eb9d2e95c7e17eb195be8ba7b68c4
+PODFILE CHECKSUM: de0eb4d9264c098f4289ca4aee6860a73e726ebd
 
 COCOAPODS: 1.11.2

@@ -2,9 +2,9 @@ import UIKit
 import CoreData
 
 class CoreDataManager: NSObject {
+
 func setCurrentData(current: NSDictionary, minutely: NSArray) {
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
-    let context = appDelegate?.persistentContainer.viewContext
+    let context = StringLiterals.appDelegate?.persistentContainer.viewContext
     let entity = NSEntityDescription.entity(forEntityName: "CurrentEntity", in: context!)
     let dict = NSManagedObject(entity: entity!, insertInto: context)
     do {
@@ -23,8 +23,8 @@ func setCurrentData(current: NSDictionary, minutely: NSArray) {
 }
 
 func getCurrentData() -> NSDictionary {
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
-    let context = appDelegate?.persistentContainer.viewContext
+
+    let context = StringLiterals.appDelegate?.persistentContainer.viewContext
     let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CurrentEntity")
     request.returnsObjectsAsFaults = false
     let resultDict = NSMutableDictionary()
@@ -33,8 +33,9 @@ func getCurrentData() -> NSDictionary {
         if results?.count != 0 {
             for result in results! {
                 if let currentData = (result as AnyObject).value(forKey: "current") as? NSData {
-                 let currentDict = ((NSKeyedUnarchiver.unarchiveObject(with: currentData as Data)) as AnyObject) as? NSDictionary
-                    resultDict.setValue(currentDict, forKey: "current")
+                 let currentDict = ((NSKeyedUnarchiver.unarchiveObject(with: currentData as Data)) as AnyObject)
+                     as? NSDictionary
+                     resultDict.setValue(currentDict, forKey: "current")
                 }
                 if let minutelyData =
                     (result as AnyObject).value(forKey: "minutely") as? NSData {

@@ -1,7 +1,6 @@
 import UIKit
 import SwiftMessages
 import ANLoader
-import Alamofire
 
 class DataViewModel: NSObject {
 // MARK: - Private Lets
@@ -26,17 +25,16 @@ override init() {
 // MARK: - Getting Data From Url
 
 private func callFuncToGetData() {
-    if isRefreshing == false {
     ANLoader.showLoading()
-    }
-    NetworkOperation().postRequest(methodName: StringLiterals.jsonUrl,
-    parameter: [:]) { [weak self] (response) in
-            ANLoader.hide()
+    NetworkOperation().postRequest(methodName: StringLiterals.jsonUrl) { [weak self] (response) in
+              // print("response",response)
+               ANLoader.hide()
                if let newResponse = response as? String {
                let jsonData = Data((newResponse).utf8)
                let jsonDecoder = JSONDecoder()
                 do {
                   let data = try jsonDecoder.decode(DataList.self, from: jsonData)
+                   // print("dataShow",data)
                   self?.jsonListData = data
                   let current = self?.jsonListData.current
                   let minutely = self?.jsonListData.minutely
